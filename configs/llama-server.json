@@ -1,0 +1,18 @@
+{
+  "host": "127.0.0.1",
+  "ports": {
+    "classifier": 8081,
+    "drafter": 8082,
+    "embedder": 8083
+  },
+  "flags": [
+    "--host", "127.0.0.1",
+    "--no-mmap",
+    "--jinja"
+  ],
+  "forbidden_flags": [
+    "-hf",
+    "--host 0.0.0.0"
+  ],
+  "notes": "Start three llama-server processes from the offline MSI. Do not enable SSL to the public internet. Named pipe to MAPI is preferred over extra TCP."
+}

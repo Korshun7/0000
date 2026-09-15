@@ -1,0 +1,7 @@
+# Local artifacts — never commit mail data or model weights
+*.db
+*.db-wal
+*.db-shm
+*.gguf
+.DS_Store
+Thumbs.db
