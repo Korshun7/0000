@@ -49,5 +49,6 @@
 - [Выбор модели и железа](docs/MODELS.md)
 - [План внедрения](docs/ROADMAP.md)
 - [Угрозы и контрмеры](docs/THREAT_MODEL.md)
+- [Готовые решения на рынке](docs/EXISTING_SOLUTIONS.md)
 
 Схемы и шаблоны: `schemas/`, `configs/`, `prompts/`.
