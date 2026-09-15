@@ -1,0 +1,33 @@
+# Three reply variants plus citations. Drafter must not emit free-form markdown.
+
+root ::= object
+object ::= "{" ws
+  "\"variants\"" ws ":" ws variants
+  ws "}"
+
+variants ::= "[" ws variant "," ws variant "," ws variant ws "]"
+
+variant ::= "{" ws
+  "\"variant\"" ws ":" ws variant-id "," ws
+  "\"kind\"" ws ":" ws kind "," ws
+  "\"subject\"" ws ":" ws string "," ws
+  "\"body_text\"" ws ":" ws string "," ws
+  "\"citations\"" ws ":" ws citations "," ws
+  "\"risks\"" ws ":" ws risks
+  ws "}"
+
+variant-id ::= "1" | "2" | "3"
+kind ::= "\"short_formal\"" | "\"detailed\"" | "\"clarifying\""
+
+citations ::= "[" ws "]" | "[" ws citation ("," ws citation)* ws "]"
+citation ::= "{" ws
+  "\"entry_id\"" ws ":" ws string "," ws
+  "\"claim\"" ws ":" ws string
+  ws "}"
+
+risks ::= "[" ws "]" | "[" ws string ("," ws string)* ws "]"
+
+string ::= "\"" char* "\""
+char ::= [^"\\] | "\\" escape
+escape ::= ["\\/bfnrt] | "u" [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F]
+ws ::= ([ \t\n]*)
