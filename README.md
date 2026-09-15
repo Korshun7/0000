@@ -17,6 +17,7 @@
 | Отправка | Только черновик в Outlook | Человек нажимает «Отправить». Система сама ничего не шлёт |
 
 Полный проект: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+**Начать с малого:** [docs/SIMPLE.md](docs/SIMPLE.md) — Outlook + один 8B + скрипт в Черновики.
 
 ## Что умеет система
 
@@ -49,8 +50,10 @@
 - [Модель данных](docs/DATA_MODEL.md)
 - [Пайплайн 200 писем](docs/PIPELINE.md)
 - [Выбор модели и железа](docs/MODELS.md)
+- [Почему столько железа](docs/WHY_RESOURCES.md)
 - [План внедрения](docs/ROADMAP.md)
 - [Угрозы и контрмеры](docs/THREAT_MODEL.md)
 - [Готовые решения на рынке](docs/EXISTING_SOLUTIONS.md)
+- [Максимально простой старт](docs/SIMPLE.md)
 
 Схемы и шаблоны: `schemas/`, `configs/`, `prompts/`.
