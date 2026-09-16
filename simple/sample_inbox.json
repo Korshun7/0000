@@ -1,0 +1,93 @@
+{
+  "account": "me@company.com",
+  "messages": [
+    {
+      "id": "a1",
+      "conversation_id": "conv-invoice",
+      "from": "alice@vendor.com",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "Счёт по договору 17",
+      "body": "Добрый день. Прошу подтвердить сумму по счёту.",
+      "received": "2026-09-16T10:00:00",
+      "unread": true
+    },
+    {
+      "id": "a2",
+      "conversation_id": "conv-invoice",
+      "from": "me@company.com",
+      "to": "alice@vendor.com",
+      "cc": "",
+      "subject": "Re: Счёт по договору 17",
+      "body": "Принял, проверю сегодня.",
+      "received": "2026-09-16T11:00:00",
+      "unread": false
+    },
+    {
+      "id": "a3",
+      "conversation_id": "conv-invoice",
+      "from": "alice@vendor.com",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "Re: Счёт по договору 17",
+      "body": "Спасибо. Нужно подтверждение до пятницы?",
+      "received": "2026-09-16T12:30:00",
+      "unread": true
+    },
+    {
+      "id": "b1",
+      "conversation_id": "conv-split-1",
+      "from": "bob@partner.com",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "График поставки насосов",
+      "body": "Высылаю график.",
+      "received": "2026-09-15T09:00:00",
+      "unread": true
+    },
+    {
+      "id": "b2",
+      "conversation_id": "conv-split-2",
+      "from": "bob@partner.com",
+      "to": "me@company.com",
+      "cc": "warehouse@company.com",
+      "subject": "Fwd: График поставки насосов",
+      "body": "Уточните, пожалуйста, дату разгрузки.",
+      "received": "2026-09-15T15:40:00",
+      "unread": true
+    },
+    {
+      "id": "c1",
+      "conversation_id": "conv-news",
+      "from": "noreply@shop.example",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "Новости недели — скидки",
+      "body": "Большая распродажа. Unsubscribe / отписаться в один клик.",
+      "received": "2026-09-16T08:00:00",
+      "unread": true
+    },
+    {
+      "id": "d1",
+      "conversation_id": "conv-hello",
+      "from": "random@other.com",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "Hi",
+      "body": "Just saying hello.",
+      "received": "2026-09-14T18:00:00",
+      "unread": true
+    },
+    {
+      "id": "d2",
+      "conversation_id": "conv-hello-2",
+      "from": "someone@else.com",
+      "to": "me@company.com",
+      "cc": "",
+      "subject": "Hi",
+      "body": "Another unrelated hello.",
+      "received": "2026-09-14T19:00:00",
+      "unread": true
+    }
+  ]
+}
