@@ -1,6 +1,6 @@
 # BR-01 — Спальня (спальня + рабочая зона)
 
-Обмерный чертёж и план расстановки: [`plans/BR-01-obmer.jpg`](plans/BR-01-obmer.jpg), [`plans/BR-01-rasstanovka.jpg`](plans/BR-01-rasstanovka.jpg). Анализ, насколько здесь удобно жить: [`BR-01-zonirovanie.md`](BR-01-zonirovanie.md).
+Обмерный чертёж и план расстановки: [`plans/BR-01-obmer.jpg`](plans/BR-01-obmer.jpg), [`plans/BR-01-rasstanovka.jpg`](plans/BR-01-rasstanovka.jpg). Анализ зонирования: [`BR-01-zonirovanie.md`](BR-01-zonirovanie.md). Рендеры по модели SketchUp: [`renders/`](renders/).
 
 Электрика в этом документе **не заполняется** — только геометрия, проёмы, отделочные площади и расстановка. Высота потолка **2740 мм**. Высоты дверного и оконного проёмов и подоконника — в чеклисте дообмера.
 
