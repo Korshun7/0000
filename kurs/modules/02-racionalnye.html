@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Модуль 2. Умные вычисления — Сам в 5-й</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html">Сам в <span>5-й</span></a>
+      <nav class="nav"><a href="../index.html">Карта</a><a href="../otvety.html">Ответы</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="lesson-hero">
+      <div class="crumbs"><a href="../index.html">Курс</a> · Модуль 02 · глава 3 Михлина</div>
+      <h1>Умные вычисления</h1>
+      <p>Рациональные приёмы: считаем не «в лоб», а красиво. На экзамене это экономит минуты и нервы.</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни</div>
+      <p>В магазине 38 пачек печенья по 54 ₽ и ещё 38 пачек по 46 ₽. Сколько всего?</p>
+      <p>Глупый путь: 38·54 и 38·46 отдельно. Умный:</p>
+      <p><span class="formula">38 · (54 + 46) = 38 · 100 = 3800</span></p>
+      <p>Это и есть распределительный закон: общее вынесли за скобки.</p>
+    </div>
+
+    <div class="block">
+      <h2>Главные приёмы (запомни как суперспособности)</h2>
+      <h3>1. Вынести общее при умножении</h3>
+      <p><code>a·c + b·c = (a+b)·c</code> и <code>a·c − b·c = (a−b)·c</code></p>
+      <h3>2. Вынести общее при делении</h3>
+      <p><code>a:c + b:c = (a+b):c</code> — только если делитель <em>один и тот же</em>.</p>
+      <h3>3. Поменять порядок множителей</h3>
+      <p>От перестановки множителей произведение не меняется. Ищи «двойников».</p>
+      <h3>4. Полезные перегруппировки</h3>
+      <ul>
+        <li><code>a − b − c = a − (b + c)</code></li>
+        <li><code>a : b : c = a : (b · c)</code></li>
+        <li><code>a : (b : c) = a : b · c</code></li>
+      </ul>
+      <p>Осторожно: <code>a − b − c</code> <strong>не равно</strong> <code>a − (b − c)</code>!</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Найди сотню / тысячу»</div>
+      <p>Если рядом числа вроде 239 и 761, или 367 и 633 — спроси себя: «Складываются ли они в 1000?» Часто автор задачи специально так написал.</p>
+      <p>Пример из стиля Михлина:</p>
+      <p><code>366·239 + 365·731 = (365+1)·239 + 365·731 = 365·(239+731) + 239 = 365·1000 + 239 = 365239</code></p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе</div>
+      <p><strong>Задача.</strong> <code>15 · 34 − 15 · 14 + 15 · 80</code></p>
+      <p>Везде есть 15 — выносим:</p>
+      <p><span class="formula">15 · (34 − 14 + 80) = 15 · 100 = 1500</span></p>
+      <p>Без столбика, за 10 секунд.</p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе №2</div>
+      <p><strong>Задача.</strong> <code>744 : 2 : 3 − 144 : 6</code></p>
+      <p>Сначала <code>744 : 2 : 3 = 744 : 6</code>. Потом:</p>
+      <p><span class="formula">(744 − 144) : 6 = 600 : 6 = 100</span></p>
+    </div>
+
+    <div class="block try">
+      <div class="tag">Попробуй сам</div>
+      <ol class="tasks">
+        <li><code>54 · 38 + 38 · 46</code></li>
+        <li><code>448 : 14 + 952 : 14</code></li>
+        <li><code>15 · 34 − 15 · 14 + 15 · 80</code></li>
+        <li><code>281 · 323 + 281 · 227 + 119 · 550</code> (подсказка: сначала с группой 281)</li>
+        <li><code>345 · 73 + 23 · 25 + 345 · 27 + 77 · 25</code></li>
+        <li>На сколько отличаются 239×243 и 240×242?</li>
+        <li><code>1002 + 499 × 243 − 998 + 501 × 239</code> (собери «красивые» пары)</li>
+      </ol>
+      <details class="answer">
+        <summary>Посмотреть ответы</summary>
+        <ol>
+          <li>3800</li>
+          <li>100</li>
+          <li>1500</li>
+          <li>281·550 + 119·550 = 400·550 = 220000</li>
+          <li>345·100 + 100·25 = 34500 + 2500 = 37000</li>
+          <li>отличаются на 3: 239·243 − 240·242 = −243 + 240 = −3 (второе больше на 3)</li>
+          <li>(1002−998) + 499·243 + 501·239 = 4 + 499·243 + 501·239. Перепиши 499=500−1, 501=500+1: получится 4 + 500·(243+239) + (239−243) = 4 + 500·482 − 4 = 241000</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="block check">
+      <div class="tag">Чек-лист навыка</div>
+      <ul>
+        <li>Вижу общий множитель / делитель?</li>
+        <li>Могу ли собрать 10, 100, 1000?</li>
+        <li>Не ломаю ли порядок действий при перегруппировке?</li>
+      </ul>
+    </div>
+
+    <div class="pager">
+      <a class="btn btn-secondary" href="01-schet.html">← Модуль 1</a>
+      <a class="btn btn-primary" href="03-uravneniya.html">Модуль 3 →</a>
+    </div>
+  </main>
+</body>
+</html>
