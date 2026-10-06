@@ -10,6 +10,7 @@
 
 Валюта расчетов — российский рубль.
 
-- Текст методики: `docs/metodika-faktornogo-analiza-korrektirovki-byudzheta.md`
+- Сводная инструкция по этапам и типам контрактации: `docs/instrukciya-analiz-izmeneniya-byudzheta.md`
+- Расчетные правила, классификатор и примеры: `docs/metodika-faktornogo-analiza-korrektirovki-byudzheta.md`
 - Расчетный шаблон: `templates/postateynyy-faktornyy-analiz.xlsx`
 - Сборка шаблона: `python3 templates/build_analysis_workbook.py`
