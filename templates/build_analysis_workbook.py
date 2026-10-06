@@ -553,8 +553,9 @@ def write_cover(wb):
         "8. Одну позицию удобно разложить на листе «Калькулятор позиции». Индекс собирается на листе «Индекс».",
         "9. Риск до ввода — это риск нового роста сверх откорректированного бюджета, а не объяснение уже включенного отклонения.",
         "10. Лист «Условный пример» содержит учебный проект с ростом бюджета на 15%. Это не заключение по реальному объекту.",
-        "11. Класс надежности: А — первичные объемы, цены и индексы; Б — параметрический расчет; В — экспертный остаток.",
+        "11. Класс надежности: А — первичные объемы, цены и индексы; Б — параметрический расчет; В — экспертный остаток. Для ориентировочного бюджета до рабочей документации класс А по строительной статье не ставится.",
         "12. Полные правила, запрет двойного счета и реестр доказательств — в текстовой методике.",
+        "13. Если в базовом бюджете не было смет и рабочей документации, статья считается на листе «Ориентировочный бюджет»: инфляция начисляется на удельную ставку, а первый обсчет той же программы раскрывается внутри иных причин.",
     ]
     for i, text in enumerate(lines, 4):
         ws.merge_cells(start_row=i, start_column=1, end_row=i, end_column=6)
@@ -570,6 +571,7 @@ def write_cover(wb):
         ("Шаблон", "Пустая рабочая таблица с формулами"),
         ("Условный пример", "Заполненный пример: 8,0 млрд руб. → 9,2 млрд руб."),
         ("Калькулятор позиции", "Формула трех факторов для одной работы"),
+        ("Ориентировочный бюджет", "Удельная ставка до рабочей документации: инфляция, отступление от паспорта и уточнение"),
         ("Индекс", "Сборка коэффициента инфляции из весов ресурсов"),
         ("Производные затраты", "Процент генподряда, содержание команды и учебный график процентов"),
         ("Риск", "Шкала баллов до ввода в эксплуатацию"),
@@ -1025,6 +1027,12 @@ def write_documents(wb):
         ("Сквозные", "Учетная политика по НДС, капитализации процентов и претензиям", "F3", "Чтобы одна сумма не попала в два режима", "Оговорка о возможном двойном счете"),
         ("Сквозные", "Справка о периметре: очереди, выбытия, затраты вне бюджета", "До факторов", "Сопоставимость итогов", "Факторы могут объяснять чужой объект"),
         ("Сквозные", "Регистр фактических затрат на дату T1 против бюджета", "Все", "Связь бюджета с фактом", "Бюджет T1 может быть декларацией"),
+        ("Ориентировочный бюджет", "Модель T0 с формулой удельной ставки, составом включенных затрат, датой цен и дефлятором", "F1", "Ставка a0 и измеритель Q0, от которых считается инфляция", "Инфляцию начислять не на что"),
+        ("Ориентировочный бюджет", "Лист ТЭП и задание на проектирование редакции T0", "F2", "Паспорт программы, от которой считается отступление", "Первый обсчет нельзя отделить от изменения проекта"),
+        ("Ориентировочный бюджет", "Концепция или стадия П с пометкой, была ли она основанием бюджета", "F2 против F3d", "Названные решения отделены от решений, которых в основании не было", "Любая рабочая документация выглядит как изменение"),
+        ("Ориентировочный бюджет", "Расчет аналога с долями конструктива, фасада и инженерных систем", "U и F1", "Доля замененного решения и структура индекса, утвержденная до сметы T1", "Доля замены назначается произвольно, класс В"),
+        ("Ориентировочный бюджет", "Перечень исключений из удельной ставки и резерв на недопроектированность", "F3d", "Что ставка не обещала и какой резерв это покрывал", "Уточнение смешивается с пропуском периметра"),
+        ("Ориентировочный бюджет", "Рабочая документация и сметы T1 плюс таблица исключенных отступлений от паспорта", "S и F3d", "Стоимость той же программы в ценах T1", "F3d становится остатком без доказательства"),
         ("СМР", "Договоры, дополнительные соглашения, протоколы цены и ведомости расценок", "F1, F3", "Исходная и новая цена, формула эскалации", "Нет класса А по цене"),
         ("СМР", "Калькуляция расценки или ресурсная ведомость", "F1", "Веса материалов, машин и оплаты труда", "Индекс статьи становится среднеотраслевым, класс Б"),
         ("СМР", "Локальные сметы и сводный сметный расчет с указанием базы и квартала цен", "F1", "К какой базе применяется отношение индексов", "Индекс легко применить не к той базе"),
@@ -1093,6 +1101,112 @@ def write_documents(wb):
     ws.page_setup.horizontalCentered = True
 
 
+def write_indicative(wb):
+    ws = wb.create_sheet("Ориентировочный бюджет")
+    ws.sheet_properties.tabColor = "548235"
+    ws.sheet_view.showGridLines = False
+    ws.page_setup.orientation = "landscape"
+    ws.page_setup.fitToPage = True
+    ws.page_setup.fitToWidth = 1
+    ws.page_setup.fitToHeight = 1
+    ws.page_setup.paperSize = ws.PAPERSIZE_A4
+    ws["A1"] = "Ориентировочный бюджет до рабочей документации"
+    ws["A1"].font = font_title
+    ws.merge_cells("A2:C2")
+    ws["A2"] = (
+        "Исходного сметного объема нет. Инфляция считается на удельную ставку паспорта. "
+        "К изменениям проекта относятся площадь и замена названного решения. "
+        "Первый обсчет той же программы раскрывается внутри иных причин как F3d и вторым фактором не становится."
+    )
+    ws["A2"].font = font_small
+    ws["A2"].alignment = align_wrap
+    ws.row_dimensions[2].height = 34
+
+    ws["A4"] = "Паспорт и инфляция"
+    ws["A4"].font = font_parent
+    rows = [
+        (5, "Исходный измеритель Q0", 50000, "м² общей площади, как в модели T0", "#,##0.00", True),
+        (6, "Удельная ставка a0", 120000, "руб. без НДС за единицу измерителя", "#,##0.00", True),
+        (7, "Коэффициент Iex", 1.25, "дефлятор паспорта, не веса новой сметы", "0.0000", True),
+    ]
+    for row, label, value, note, fmt, is_input in rows:
+        paint(ws.cell(row, 1, label), font_leaf, fill_leaf, align_wrap)
+        paint(ws.cell(row, 2, value), font_leaf, fill_input if is_input else fill_formula, align_num, fmt)
+        paint(ws.cell(row, 3, note), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(8, 1, "Базовый бюджет B0"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(8, 2, "=B5*B6"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(8, 3, "a0 × Q0"), font_small, fill_parent, align_wrap)
+    paint(ws.cell(9, 1, "Фактор 1. Инфляция"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(9, 2, "=B8*(B7-1)"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(9, 3, "только на сумму паспорта"), font_small, fill_parent, align_wrap)
+    paint(ws.cell(10, 1, "Проиндексированный паспорт"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(10, 2, "=B8*B7"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(10, 3, "B0 × Iex"), font_small, fill_parent, align_wrap)
+
+    ws["A12"] = "Отступление от паспорта"
+    ws["A12"].font = font_parent
+    paint(ws.cell(13, 1, "Измеритель T1, Q1"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(13, 2, 52000), font_leaf, fill_input, align_num, "#,##0.00")
+    paint(ws.cell(13, 3, "новый ТЭП той же единицы измерения"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(14, 1, "Стоимость той же программы S"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(14, 2, 7750000000), font_leaf, fill_input, align_num, RUB)
+    paint(ws.cell(14, 3, "рабочая документация и цены T1 без лишней площади и без замененного решения"), font_small, fill_leaf, align_wrap)
+    ws.row_dimensions[14].height = 32
+    paint(ws.cell(15, 1, "Удельная стоимость той же программы"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(15, 2, "=IF(B5=0,\"\",B14/B5)"), font_leaf, fill_formula, align_num, "#,##0.00")
+    paint(ws.cell(15, 3, "S / Q0, руб. за единицу"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(16, 1, "Фактор 2 по измерителю"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(16, 2, "=(B13-B5)*B15"), font_leaf, fill_formula, align_num, RUB)
+    paint(ws.cell(16, 3, "приростная площадь в текущей полноте исходного стандарта"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(17, 1, "Стоимость нового решения на Q0"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(17, 2, 1400000000), font_leaf, fill_input, align_num, RUB)
+    paint(ws.cell(17, 3, "замена решения, названного в паспорте"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(18, 1, "Доля замененного решения в ставке T0"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(18, 2, 800000000), font_leaf, fill_input, align_num, RUB)
+    paint(ws.cell(18, 3, "Allowance0 из паспорта или аналога"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(19, 1, "U, чистая замена"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(19, 2, "=B17-B18*B7"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(19, 3, "Cost1 − Allowance0 × Iex"), font_small, fill_parent, align_wrap)
+    paint(ws.cell(20, 1, "Фактор 2. Изменения ПСД"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(20, 2, "=B16+B19"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(20, 3, "площадь и замена; детализация сюда не входит"), font_small, fill_parent, align_wrap)
+
+    ws["A22"] = "Факт, уточнение и прочие иные причины"
+    ws["A22"].font = font_parent
+    paint(ws.cell(23, 1, "Откорректированный бюджет B1"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(23, 2, 8560000000), font_leaf, fill_input, align_num, RUB)
+    paint(ws.cell(23, 3, "статья T1, тот же периметр"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(24, 1, "Фактор 3. Иные причины"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(24, 2, "=B23-B8-B9-B20"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(24, 3, "остаток после инфляции и отступлений от паспорта"), font_small, fill_parent, align_wrap)
+    paint(ws.cell(25, 1, "В том числе F3d, уточнение по РД"), font_parent, fill_ok, align_wrap)
+    paint(ws.cell(25, 2, "=B14-B10"), font_parent, fill_ok, align_num, RUB)
+    paint(ws.cell(25, 3, "S − проиндексированный паспорт; это не изменение проекта"), font_small, fill_ok, align_wrap)
+    paint(ws.cell(26, 1, "В том числе прочие иные причины"), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(26, 2, "=B24-B25"), font_leaf, fill_formula, align_num, RUB)
+    paint(ws.cell(26, 3, "срок, закупка, форс-мажор и налог"), font_small, fill_leaf, align_wrap)
+    paint(ws.cell(27, 1, "Отклонение"), font_parent, fill_parent, align_wrap)
+    paint(ws.cell(27, 2, "=B23-B8"), font_parent, fill_formula, align_num, RUB)
+    paint(ws.cell(28, 1, "Контроль тождества"), font_parent, fill_ok, align_wrap)
+    paint(ws.cell(28, 2, "=B9+B20+B24-B27"), font_parent, fill_ok, align_num, RUB)
+    paint(ws.cell(28, 3, "F1 + F2 + F3 − отклонение, должно быть 0"), font_small, fill_ok, align_wrap)
+    paint(ws.cell(29, 1, "Контроль состава B1"), font_parent, fill_ok, align_wrap)
+    paint(ws.cell(29, 2, "=B14+B20+B26-B23"), font_parent, fill_ok, align_num, RUB)
+    paint(ws.cell(29, 3, "S + F2 + прочие иные − B1, должно быть 0"), font_small, fill_ok, align_wrap)
+    ws.merge_cells("A31:C31")
+    ws["A31"] = (
+        "Числа листа — учебный пример раздела 5.10: 6,00 млрд руб. становятся 8,56 млрд руб. "
+        "Из отклонения 2,56 млрд руб. инфляция паспорта составляет 1,50 млрд, изменения площади и фасада — 0,71 млрд, "
+        "уточнение по рабочей документации — 0,25 млрд, прочие иные причины — 0,10 млрд."
+    )
+    ws["A31"].font = font_small
+    ws["A31"].alignment = align_wrap
+    ws.row_dimensions[31].height = 36
+    set_widths(ws, [48, 24, 78])
+    ws.freeze_panes = "A4"
+    ws.print_title_rows = "1:2"
+
+
 def write_control(wb, example_total_row):
     ws = wb.create_sheet("Контроль")
     ws.sheet_properties.tabColor = "548235"
@@ -1136,6 +1250,10 @@ def write_control(wb, example_total_row):
     paint(ws.cell(19, 2, "='Производные затраты'!B26"), font_parent, fill_formula, align_num, "0.00")
     paint(ws.cell(20, 1, "Контроль учебного графика процентов, млн руб."), font_leaf, fill_leaf, align_wrap)
     paint(ws.cell(20, 2, "='Производные затраты'!B51"), font_parent, fill_formula, align_num, "0.00")
+    paint(ws.cell(21, 1, "Контроль ориентировочного бюджета, руб."), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(21, 2, "='Ориентировочный бюджет'!B28"), font_parent, fill_formula, align_num, "0.00")
+    paint(ws.cell(22, 1, "Контроль состава ориентировочного бюджета, руб."), font_leaf, fill_leaf, align_wrap)
+    paint(ws.cell(22, 2, "='Ориентировочный бюджет'!B29"), font_parent, fill_formula, align_num, "0.00")
     ws.conditional_formatting.add("D5:D15", FormulaRule(formula=['D5=TRUE'], fill=fill_ok))
     ws.conditional_formatting.add("D5:D15", FormulaRule(formula=['D5=FALSE'], fill=PatternFill("solid", fgColor="F8CBAD")))
     set_widths(ws, [62, 28, 28, 16])
@@ -1157,6 +1275,7 @@ def main():
     write_analysis_sheet(wb, "Шаблон", with_values=False)
     _, total_row = write_analysis_sheet(wb, "Условный пример", with_values=True)
     write_position_calculator(wb)
+    write_indicative(wb)
     write_index(wb)
     write_derivatives(wb)
     write_risk(wb)
