@@ -13,4 +13,5 @@
 - Сводная инструкция по наличию рабочей документации, расчета по ее объемам и типу контрактации: `docs/instrukciya-analiz-izmeneniya-byudzheta.md`
 - Расчетные правила, классификатор и примеры: `docs/metodika-faktornogo-analiza-korrektirovki-byudzheta.md`
 - Расчетный шаблон: `templates/postateynyy-faktornyy-analiz.xlsx`
+- Краткая редакция методики на трех страницах: `docs/Методика факторного анализа (3 страницы).docx`
 - Сборка шаблона: `python3 templates/build_analysis_workbook.py`
