@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Модуль 3. Уравнения — Сам в 5-й</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html">Сам в <span>5-й</span></a>
+      <nav class="nav"><a href="../index.html">Карта</a><a href="../otvety.html">Ответы</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="lesson-hero">
+      <div class="crumbs"><a href="../index.html">Курс</a> · Модуль 03 · глава 4 Михлина</div>
+      <h1>Уравнения</h1>
+      <p>Уравнение — это загадка: «какое число спряталось под x?» Решаем не угадыванием, а правилами «назад».</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни</div>
+      <p>У тебя было несколько наклеек. Ты отдал другу 5, потом купил ещё 3 одинаковых набора по 4 штуки — и стало 19. Сколько было сначала?</p>
+      <p>Пусть сначала было <code>x</code>. Тогда:</p>
+      <p><span class="formula">x − 5 + 3 · 4 = 19 → x − 5 + 12 = 19 → x + 7 = 19 → x = 12</span></p>
+      <p>Проверка: 12 − 5 = 7, плюс 12 наклеек = 19. Сходится!</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Шесть ключей»</div>
+      <p>Заучи как таблицу умножения:</p>
+      <ol>
+        <li>Неизвестное <strong>слагаемое</strong> = сумма − известное слагаемое</li>
+        <li>Неизвестный <strong>множитель</strong> = произведение : известный множитель</li>
+        <li>Неизвестное <strong>уменьшаемое</strong> = разность + вычитаемое</li>
+        <li>Неизвестное <strong>вычитаемое</strong> = уменьшаемое − разность</li>
+        <li>Неизвестное <strong>делимое</strong> = делитель × частное</li>
+        <li>Неизвестный <strong>делитель</strong> = делимое : частное</li>
+      </ol>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Сначала убери мусор»</div>
+      <ol>
+        <li>Посчитай всё, где нет x.</li>
+        <li>Собери все x в одно место (складывай/вычитай x).</li>
+        <li>Снимай действия с x «как луковицу» — снаружи внутрь.</li>
+        <li>Всегда делай <strong>проверку</strong>: подставь ответ обратно.</li>
+      </ol>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе</div>
+      <p><strong>Задача.</strong> <code>7 · 5 − 3x + 5x = 2x · 5 + 11</code></p>
+      <ol>
+        <li>Посчитали без x: <code>35 + 2x = 10x + 11</code></li>
+        <li>Убрали по 2x с обеих сторон: <code>35 = 8x + 11</code></li>
+        <li>Убрали 11: <code>24 = 8x</code></li>
+        <li>Разделили: <code>x = 3</code></li>
+      </ol>
+      <p>Проверка: слева 35 − 9 + 15 = 41; справа 30 + 11 = 41. Отлично!</p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе №2</div>
+      <p><strong>Задача.</strong> <code>(x − 8365) : 6 = 2108</code></p>
+      <p>Неизвестное делимое: сначала умножаем: <code>x − 8365 = 2108 · 6 = 12648</code>.</p>
+      <p>Потом: <code>x = 12648 + 8365 = 21013</code>.</p>
+    </div>
+
+    <div class="block try">
+      <div class="tag">Попробуй сам</div>
+      <ol class="tasks">
+        <li><code>19 + 2x = 105</code></li>
+        <li><code>9x − 36 = 99</code></li>
+        <li><code>(x · 12 − 48) : 6 = 18</code></li>
+        <li><code>423 : (64 − x) = 47</code></li>
+        <li><code>15 · (16 + 64 : x) = 300</code></li>
+        <li><code>50 − (18 + 4x : 2) : 3 = 10</code></li>
+        <li>Произведение числа 36 и суммы числа 14 и удвоенного y больше 226 на 422. Найди y.</li>
+      </ol>
+      <details class="answer">
+        <summary>Посмотреть ответы</summary>
+        <ol>
+          <li>x = 43</li>
+          <li>x = 15</li>
+          <li>x = 13</li>
+          <li>x = 55</li>
+          <li>x = 16</li>
+          <li>x = 21</li>
+          <li>36·(14+2y) = 226+422 = 648 → 14+2y = 18 → y = 2</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="pager">
+      <a class="btn btn-secondary" href="02-racionalnye.html">← Модуль 2</a>
+      <a class="btn btn-primary" href="04-velichiny.html">Модуль 4 →</a>
+    </div>
+  </main>
+</body>
+</html>

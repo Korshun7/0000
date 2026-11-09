@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Модуль 1. Точный счёт — Сам в 5-й</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html">Сам в <span>5-й</span></a>
+      <nav class="nav"><a href="../index.html">Карта</a><a href="../otvety.html">Ответы</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="lesson-hero">
+      <div class="crumbs"><a href="../index.html">Курс</a> · Модуль 01 · глава 2 Михлина</div>
+      <h1>Точный счёт</h1>
+      <p>На вступительных почти всегда есть «просто посчитай». Ошибки чаще всего — в делении и в нулях. Этот модуль — твоя броня.</p>
+    </div>
+
+    <div class="block">
+      <h2>Идея</h2>
+      <p>Сначала учимся считать <em>правильно</em>, даже медленно. Потом — быстрее. Красивые трюки (модуль 2) работают только если столбик уже надёжный.</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни</div>
+      <p>Ты копишь на конструктор за 3&nbsp;780 ₽. У тебя уже 1&nbsp;250 ₽, бабушка дала 900 ₽, а за помощь по дому ты заработал 640 ₽. Хватает? Считаем:</p>
+      <p><span class="formula">1250 + 900 + 640 = 2790</span></p>
+      <p>Не хватает: 3780 − 2790 = 990 ₽. Один неверный ноль — и ты думаешь, что уже богат!</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Сколько цифр в ответе?»</div>
+      <p>Перед делением в столбик оцени ответ. Пример: 111&nbsp;004&nbsp;033 : 37.</p>
+      <p>37 · 3&nbsp;000&nbsp;000 = 111&nbsp;000&nbsp;000 — уже близко. Значит, ответ около трёх миллионов и <strong>в ответе примерно 7 цифр</strong>. Если у тебя получилось 300&nbsp;000 — где-то потерял ноль.</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Порядок действий — светофор»</div>
+      <ol>
+        <li><strong>Скобки</strong> — всегда первые (как красный: стой и сделай).</li>
+        <li><strong>× и :</strong> — потом (жёлтый).</li>
+        <li><strong>+ и −</strong> — в конце (зелёный: можно ехать дальше).</li>
+      </ol>
+      <p>Пример: <code>83 + 17 · 2</code> — это не 200, а <code>83 + 34 = 117</code>.</p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе</div>
+      <p><strong>Задача.</strong> Что больше: 36&nbsp;155&nbsp;457 : 351 или 45&nbsp;338&nbsp;764 : 452?</p>
+      <p>Не обязательно делить до конца. Можно сравнить «примерно»:</p>
+      <ul>
+        <li>36&nbsp;155&nbsp;457 ≈ 36.2 млн, 351 ≈ 350 → примерно 36&nbsp;200&nbsp;000 : 350 ≈ 103&nbsp;400</li>
+        <li>45&nbsp;338&nbsp;764 ≈ 45.3 млн, 452 ≈ 450 → примерно 45&nbsp;300&nbsp;000 : 450 = 100&nbsp;600</li>
+      </ul>
+      <p>Первое больше. На экзамене всё равно досчитай точно, если просят точный ответ — но оценка спасает от глупых ошибок.</p>
+      <details class="answer"><summary>Точный ответ</summary><p>Первое частное больше (103&nbsp;007… против 100&nbsp;307… — ориентир; главное — метод сравнения и аккуратное деление).</p></details>
+    </div>
+
+    <div class="block try">
+      <div class="tag">Попробуй сам</div>
+      <ol class="tasks">
+        <li>Запиши цифрами: сто тысяч пятьсот восемь.</li>
+        <li>Запиши цифрами: двести тысяч триста девять.</li>
+        <li>Вычисли: <code>83 + 17 · 2</code></li>
+        <li>Вычисли: <code>8602 : 17 + 38 · (534 − 129)</code></li>
+        <li>Найди остаток при делении 505 на 19.</li>
+        <li>Чему равна утроенная половина четверти числа 96?</li>
+        <li>Расставь порядок действий (считать не надо): <code>(698 + 56 : 8 · 9 − 486) : 2 − 178</code></li>
+        <li>Что больше: миллиард десятков или тысяча миллионов?</li>
+      </ol>
+      <details class="answer">
+        <summary>Посмотреть ответы</summary>
+        <ol>
+          <li>100508</li>
+          <li>200309</li>
+          <li>117</li>
+          <li>506 + 15390 = 15896</li>
+          <li>11 (19·26=494, 505−494=11)</li>
+          <li>36 (четверть 24 → половина 12 → утроенная 36)</li>
+          <li>сначала в скобках: : и ·, потом +, −; затем : 2; потом − 178</li>
+          <li>миллиард десятков больше (10 млрд против 1 млрд)</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="block check">
+      <div class="tag">Мини-тренировка на 10 минут</div>
+      <p>Поставь таймер. Реши 5 примеров на деление в столбик из школьной тетради или пособия Михлина (глава 2). Цель: <strong>0 ошибок</strong>, даже если медленно.</p>
+    </div>
+
+    <div class="pager">
+      <a class="btn btn-secondary" href="00-start.html">← Старт</a>
+      <a class="btn btn-primary" href="02-racionalnye.html">Модуль 2 →</a>
+    </div>
+  </main>
+</body>
+</html>

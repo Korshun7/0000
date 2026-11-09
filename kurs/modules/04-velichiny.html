@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Модуль 4. Величины и жизнь — Сам в 5-й</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html">Сам в <span>5-й</span></a>
+      <nav class="nav"><a href="../index.html">Карта</a><a href="../otvety.html">Ответы</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="lesson-hero">
+      <div class="crumbs"><a href="../index.html">Курс</a> · Модуль 04 · глава 5 Михлина</div>
+      <h1>Величины и жизнь</h1>
+      <p>Метры, площади, скорость, время, часовые пояса. Здесь почти всегда помогает рисунок.</p>
+    </div>
+
+    <div class="block">
+      <h2>Формулы, которые живут в голове</h2>
+      <p><span class="formula">S = v · t</span> путь = скорость × время</p>
+      <p>Прямоугольник: площадь <code>a·b</code>, периметр <code>2(a+b)</code></p>
+      <p>Квадрат: площадь <code>a²</code>, периметр <code>4a</code></p>
+      <p>Коробка (параллелепипед): объём <code>a·b·c</code></p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни: догонялки</div>
+      <p>Собака бежит 200 м/мин, лиса — 160 м/мин. Сейчас между ними 200 м. Когда собака догонит?</p>
+      <p>Каждую минуту собака сокращает разрыв на <code>200 − 160 = 40</code> метров.</p>
+      <p><span class="formula">200 : 40 = 5 минут</span></p>
+      <p>Лайфхак: при догоне скорость сближения = разность скоростей. При встрече навстречу — сумма.</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «4 вида движения»</div>
+      <ul>
+        <li><strong>Навстречу</strong> — сближаются со скоростью v₁ + v₂</li>
+        <li><strong>Догоняет</strong> — сближаются со скоростью |v₁ − v₂|</li>
+        <li><strong>В разные стороны</strong> — удаляются со скоростью v₁ + v₂</li>
+        <li><strong>«Убегает» быстрее</strong> — удаляются со скоростью разности</li>
+      </ul>
+      <p>Всегда рисуй стрелочки на дороге!</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни: единицы</div>
+      <p>5 метров разделить на 8 человек по верёвке. В метрах неудобно — переведи в миллиметры:</p>
+      <p><code>5 м = 5000 мм</code>, <code>5000 : 8 = 625 мм = 62 см 5 мм</code>.</p>
+      <p>Квадратные величины: если в 1 м = 10 дм, то в 1 м² = 100 дм² (потому что 10×10).</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «День недели через остаток»</div>
+      <p>Через неделю день недели тот же. Значит, важен только остаток от деления числа дней на 7.</p>
+      <p>Сегодня среда, через 1000 дней: 1000 : 7 = 142×7 + 6 → сдвиг на 6 дней → <strong>вторник</strong>.</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример: часовые пояса</div>
+      <p>Самолёт «туда» по часам летит 4 часа, «обратно» тем же маршрутом — 10 часов. Как так?</p>
+      <p>Город A восточнее. Разница поясов «съедает» или «добавляет» время на табло.</p>
+      <p>Разница показаний 6 часов → сдвиг пояса 3 часа, чистое время полёта 7 часов.</p>
+      <p><span class="formula">полёт = (туда + обратно) : 2 ··· пояс = |туда − обратно| : 2</span></p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе</div>
+      <p><strong>Задача.</strong> Кирпич весит 1 кг и ещё полкирпича. Сколько весят 5 кирпичей?</p>
+      <p>Пусть кирпич = x. Тогда <code>x = 1 + x/2</code> → <code>x/2 = 1</code> → <code>x = 2</code> кг.</p>
+      <p>Пять кирпичей: 10 кг.</p>
+      <p>Лайфхак: «и ещё половина меня» почти всегда значит «целое = 2 · добавка».</p>
+    </div>
+
+    <div class="block try">
+      <div class="tag">Попробуй сам</div>
+      <ol class="tasks">
+        <li>Периметр прямоугольника 30 см, одна сторона 10 см. Найди другую сторону.</li>
+        <li>Верёвку 35 м разрезали на два куска, один вчетверо длиннее другого. Длина меньшего?</li>
+        <li>Собака 200 м/мин, лиса 160 м/мин, разрыв 200 м. Через сколько минут догонит?</li>
+        <li>Площадь прямоугольника 30 см², сторона 10 см. Найди периметр.</li>
+        <li>Сегодня 18 мая 2014 (воскресенье). Какой день недели будет через 700 дней?</li>
+        <li>Ваня вышел на 1 ч 30 мин раньше Пети. Скорости 4 и 6 км/ч. Когда Петя догонит?</li>
+        <li>В футе 12 дюймов. Сколько квадратных дюймов в 3 квадратных футах?</li>
+      </ol>
+      <details class="answer">
+        <summary>Посмотреть ответы</summary>
+        <ol>
+          <li>5 см</li>
+          <li>7 м (части 1+4=5, 35:5=7)</li>
+          <li>5 минут</li>
+          <li>вторая сторона 3 см, периметр 26 см</li>
+          <li>700 делится на 7 без остатка → снова воскресенье</li>
+          <li>за 1.5 ч Ваня ушёл на 6 км; сближение 2 км/ч → 3 часа</li>
+          <li>3 · 12 · 12 = 432</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="pager">
+      <a class="btn btn-secondary" href="03-uravneniya.html">← Модуль 3</a>
+      <a class="btn btn-primary" href="05-standartnye.html">Модуль 5 →</a>
+    </div>
+  </main>
+</body>
+</html>

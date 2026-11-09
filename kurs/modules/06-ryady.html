@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Модуль 6. Ряды и сравнения — Сам в 5-й</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html">Сам в <span>5-й</span></a>
+      <nav class="nav"><a href="../index.html">Карта</a><a href="../otvety.html">Ответы</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="lesson-hero">
+      <div class="crumbs"><a href="../index.html">Курс</a> · Модуль 06 · глава 7 Михлина</div>
+      <h1>Ряды и сравнения</h1>
+      <p>Сколько чисел от A до B? Кто больше? Какая закономерность? Эти задачи любят на тестах — они короткие, но хитрые.</p>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример из жизни</div>
+      <p>В лифте кнопки с 3 по 12 этаж. Сколько кнопок?</p>
+      <p>Ошибка: 12 − 3 = 9. Правильно: <strong>12 − 3 + 1 = 10</strong> (потому что оба конца входят).</p>
+      <p>Лайфхак: «сколько заборов между столбами» и «сколько столбов» — разные вещи.</p>
+    </div>
+
+    <div class="block hack">
+      <div class="tag">Лайфхак «Перегородки»</div>
+      <p>Если между домами 5 одинаковых промежутков, а домов стоит на 1 больше.</p>
+      <p>Если разрезать торт на 6 кусков прямыми — это уже про перегородки/разрезы. На экзамене часто: «сколько пробелов между …».</p>
+      <p>Формула для чисел от A до B включительно: <span class="formula">B − A + 1</span></p>
+      <p>Сколько чисел от A до B, кратных K: посчитай первое и последнее кратное, потом сколько шагов.</p>
+    </div>
+
+    <div class="block">
+      <h2>Делимость — быстрые проверки</h2>
+      <ul>
+        <li>на 2 — последняя цифра чётная</li>
+        <li>на 5 — оканчивается на 0 или 5</li>
+        <li>на 10 — оканчивается на 0</li>
+        <li>на 3 / 9 — сумма цифр делится на 3 / 9</li>
+        <li>на 4 — две последние цифры образуют число, делящееся на 4</li>
+      </ul>
+    </div>
+
+    <div class="block life">
+      <div class="tag">Пример: закономерность</div>
+      <p>Ряд: 2, 5, 11, 23, … Что дальше?</p>
+      <p>Смотрим: 2·2+1=5, 5·2+1=11, 11·2+1=23 → дальше 23·2+1=47.</p>
+      <p>Лайфхак: проверяй 3 гипотезы — «прибавляют», «умножают», «чередуют два правила».</p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе</div>
+      <p><strong>Задача.</strong> Сколько двузначных чисел делятся на 7?</p>
+      <p>Первое: 14, последнее: 98.</p>
+      <p>Это 14, 21, … 98 = 7·2, 7·3, … 7·14.</p>
+      <p>Количество: 14 − 2 + 1 = 13.</p>
+    </div>
+
+    <div class="block together">
+      <div class="tag">Разберём вместе №2</div>
+      <p><strong>Задача.</strong> Что больше: 23·48 или 24·47?</p>
+      <p>Не умножай в столбик. Раскрой:</p>
+      <p><code>23·48 = 23·(47+1) = 23·47 + 23</code></p>
+      <p><code>24·47 = (23+1)·47 = 23·47 + 47</code></p>
+      <p>Второе больше на 47 − 23 = 24.</p>
+    </div>
+
+    <div class="block try">
+      <div class="tag">Попробуй сам</div>
+      <ol class="tasks">
+        <li>Сколько целых чисел от 17 до 41 включительно?</li>
+        <li>Сколько чисел от 1 до 100 делятся на 6?</li>
+        <li>Между двумя домами 8 столбов фонарей на равных расстояниях. Сколько промежутков?</li>
+        <li>Продолжи ряд: 1, 2, 4, 8, 16, …</li>
+        <li>Продолжи ряд: 3, 6, 12, 24, …</li>
+        <li>Что больше и на сколько: 18·35 или 19·34?</li>
+        <li>Делится ли 2742 на 9? Почему?</li>
+      </ol>
+      <details class="answer">
+        <summary>Посмотреть ответы</summary>
+        <ol>
+          <li>41−17+1=25</li>
+          <li>16 (6…96 → 16 штук)</li>
+          <li>9 промежутков, если считать и до домов? Внимание: «между домами 8 столбов» → промежутков между столбами 7, а от дома до дома промежутков 9. Уточняй условие; классика: n объектов в ряд → n−1 промежутков</li>
+          <li>32</li>
+          <li>48</li>
+          <li>19·34 больше на 16 (аналогично приёму выше)</li>
+          <li>2+7+4+2=15, 15 делится на 3, но не на 9 → на 9 не делится</li>
+        </ol>
+      </details>
+    </div>
+
+    <div class="pager">
+      <a class="btn btn-secondary" href="05-standartnye.html">← Модуль 5</a>
+      <a class="btn btn-primary" href="07-nestandartnye.html">Модуль 7 →</a>
+    </div>
+  </main>
+</body>
+</html>
