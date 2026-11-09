@@ -1,0 +1,33 @@
+# JSON object for the 8B classifier. Used with llama.cpp --grammar-file.
+# Keep enumerations in sync with docs/DATA_MODEL.md and orchestrator validation.
+
+root ::= object
+object ::= "{" ws
+  "\"priority\"" ws ":" ws integer "," ws
+  "\"needs_reply\"" ws ":" ws boolean "," ws
+  "\"intent\"" ws ":" ws intent "," ws
+  "\"language\"" ws ":" ws string "," ws
+  "\"suggested_folder\"" ws ":" ws string "," ws
+  "\"deadline_hint\"" ws ":" ws string "," ws
+  "\"entities\"" ws ":" ws entities "," ws
+  "\"confidence\"" ws ":" ws confidence "," ws
+  "\"summary\"" ws ":" ws string
+  ws "}"
+
+intent ::= "\"question\"" | "\"request\"" | "\"fyi\"" | "\"meeting\"" | "\"invoice\"" | "\"legal\"" | "\"newsletter\"" | "\"ndr\"" | "\"other\""
+
+entities ::= "[" ws "]" | "[" ws entity ("," ws entity)* ws "]"
+entity ::= "{" ws
+  "\"type\"" ws ":" ws entity-type "," ws
+  "\"value\"" ws ":" ws string
+  ws "}"
+entity-type ::= "\"date\"" | "\"money\"" | "\"person\"" | "\"org\"" | "\"id\"" | "\"other\""
+
+boolean ::= "true" | "false"
+integer ::= [0-9] | [1-9] [0-9] | "100"
+confidence ::= "0" | "1" | "0." [0-9]+ | "1.0"
+
+string ::= "\"" char* "\""
+char ::= [^"\\] | "\\" escape
+escape ::= ["\\/bfnrt] | "u" [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F]
+ws ::= ([ \t\n]*)

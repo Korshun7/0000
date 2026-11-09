@@ -1,0 +1,37 @@
+{
+  "comment": "Offline model pack. Fill sha256 after USB copy. llama-server must not use -hf.",
+  "bind": "127.0.0.1",
+  "models": [
+    {
+      "id": "classifier-qwen3-8b",
+      "role": "classify",
+      "file": "models/Qwen3-8B-Instruct-Q5_K_M.gguf",
+      "sha256": "REPLACE_AFTER_COPY",
+      "context": 8192,
+      "port": 8081,
+      "temperature": 0.0,
+      "grammar": "schemas/classify.gbnf",
+      "thinking": false
+    },
+    {
+      "id": "drafter-qwen3.5-27b",
+      "role": "draft",
+      "file": "models/Qwen3.5-27B-Instruct-Q5_K_M.gguf",
+      "sha256": "REPLACE_AFTER_COPY",
+      "context": 32768,
+      "port": 8082,
+      "temperature": 0.4,
+      "grammar": "schemas/draft.gbnf",
+      "thinking": "complex_only"
+    },
+    {
+      "id": "embed-bge-m3",
+      "role": "embed",
+      "file": "models/bge-m3-f16.gguf",
+      "sha256": "REPLACE_AFTER_COPY",
+      "context": 8192,
+      "port": 8083,
+      "temperature": 0.0
+    }
+  ]
+}
